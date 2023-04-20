@@ -7,9 +7,9 @@ import City from "./src/screens/city";
 const App = () => {
 	return (
 		<View style={styles.container}>
-			{/* <CurrentWeather /> */}
+			<CurrentWeather />
 			{/* <UpcommingWeather /> */}
-			<City />
+			{/* <City /> */}
 		</View>
 	);
 };
