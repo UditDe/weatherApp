@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import RowText from "../components/rowText";
 
@@ -45,7 +45,6 @@ export default CurrentWeather;
 const styles = StyleSheet.create({
 	wrapper: {
 		flex: 1,
-		marginTop: StatusBar.currentHeight,
 		backgroundColor: "pink"
 	},
 	container: {

@@ -3,7 +3,6 @@ import {
 	SafeAreaView,
 	StyleSheet,
 	Text,
-	StatusBar,
 	FlatList,
 	ImageBackground
 } from "react-native";
@@ -114,7 +113,6 @@ export default UpcommingWeather;
 
 const styles = StyleSheet.create({
 	container: {
-		marginTop: StatusBar.currentHeight || 0,
 		backgroundColor: "red",
 		flex: 1
 	},

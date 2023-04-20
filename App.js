@@ -1,23 +1,19 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import CurrentWeather from "./src/screens/currentWeather";
-import UpcommingWeather from "./src/screens/upcommingWeather";
-import City from "./src/screens/city";
+import { AppRegistry } from "react-native";
 
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Tabs from "./src/components/tabs";
+
+const Tab = createBottomTabNavigator(); //initializing tab object so that we can use it
 const App = () => {
 	return (
-		<View style={styles.container}>
-			<CurrentWeather />
-			{/* <UpcommingWeather /> */}
-			{/* <City /> */}
-		</View>
+		<NavigationContainer>
+			<Tabs />
+		</NavigationContainer>
 	);
 };
 
-export default App;
+AppRegistry.registerComponent("Weather", () => App);
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1
-	}
-});
+export default App;
