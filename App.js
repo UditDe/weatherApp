@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AppRegistry, View, StyleSheet, ActivityIndicator } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Tabs from "./src/components/tabs";
-import * as Location from "expo-location";
 import { useGetWeather } from "./src/hooks/useGetWeather";
+import ErrorItems from "./src/components/errorItem";
 
 const App = () => {
 	const [loading, err, weather] = useGetWeather();
 	console.info(loading, err);
 	console.log(weather);
 
-	if (weather && weather.list) {
+	if (weather && weather.list && !loading) {
 		return (
 			<NavigationContainer>
 				<Tabs weather={weather} />
@@ -19,7 +19,11 @@ const App = () => {
 	} else {
 		return (
 			<View style={styles.container}>
-				<ActivityIndicator size={"large"} color={"blue"} />
+				{err ? (
+					<ErrorItems />
+				) : (
+					<ActivityIndicator size={"large"} color={"blue"} />
+				)}
 			</View>
 		);
 	}

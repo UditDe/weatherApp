@@ -35,6 +35,7 @@ export const useGetWeather = () => {
 			setLon(newlocation.coords.longitude);
 			await fetchWeatherData();
 		})();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [lat, lon]);
 
 	return [loading, err, weather];

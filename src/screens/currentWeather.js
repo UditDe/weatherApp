@@ -22,36 +22,36 @@ const CurrentWeather = ({ weatherData }) => {
 		weather
 	} = weatherData;
 
-	const weatherCondition = weather[0].main;
+	const weatherCondition = weather[0]?.main;
 	return (
 		<SafeAreaView
 			style={[
 				wrapper,
 				{
 					backgroundColor:
-						weatherType[weatherCondition].backgroundColor
+						weatherType[weatherCondition]?.backgroundColor //for this "?" if any property doesn't exist it will return error instead of error
 				}
 			]}
 		>
 			<View style={container}>
 				<Feather
-					name={weatherType[weatherCondition].icon}
+					name={weatherType[weatherCondition]?.icon}
 					size={100}
 					color="white"
 				/>
-				<Text style={tempStyle}>{temp}</Text>
-				<Text style={feels}>{`Feels like ${feels_like}`}</Text>
+				<Text style={tempStyle}>{temp}°</Text>
+				<Text style={feels}>{`Feels like ${feels_like}°`}</Text>
 				<RowText
-					messageOne={`High: ${temp_max}`}
-					messageTwo={`Low: ${temp_min}`}
+					messageOne={`High: ${temp_max}°`}
+					messageTwo={`Low: ${temp_min}°`}
 					containerStyles={hiLoWrapper}
 					messageOneStyles={hiLo}
 					messageTwoStyles={hiLo}
 				/>
 			</View>
 			<RowText
-				messageOne={weather[0].description}
-				messageTwo={weatherType[weatherCondition].message}
+				messageOne={weather[0]?.description}
+				messageTwo={weatherType[weatherCondition]?.message}
 				containerStyles={bodyWrapper}
 				messageOneStyles={description}
 				messageTwoStyles={msg}
@@ -64,8 +64,7 @@ export default CurrentWeather;
 
 const styles = StyleSheet.create({
 	wrapper: {
-		flex: 1,
-		backgroundColor: "pink"
+		flex: 1
 	},
 	container: {
 		flex: 1,
@@ -94,9 +93,9 @@ const styles = StyleSheet.create({
 		marginBottom: 40
 	},
 	description: {
-		fontSize: 48
+		fontSize: 43
 	},
 	msg: {
-		fontSize: 30
+		fontSize: 25
 	}
 });
