@@ -80,7 +80,7 @@ const DATA = [
 	}
 ];
 
-const UpcommingWeather = () => {
+const UpcommingWeather = ({ weatherData }) => {
 	const renderItem = ({ item }) => (
 		<ListItem
 			dt_txt={item.dt_txt}
